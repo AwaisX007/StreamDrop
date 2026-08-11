@@ -1,0 +1,24 @@
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  clearScreen: false,
+  server: {
+    strictPort: true,
+    watch: {
+      ignored: [
+        "**/src-tauri/**",
+        "**/tools/**",
+        "**/bin/**",
+        "**/data/**",
+        "**/.tmp/**",
+        "**/dist/**",
+      ],
+    },
+  },
+  envPrefix: ["VITE_", "TAURI_"],
+  build: {
+    target: process.env.TAURI_ENV_PLATFORM === "windows" ? "chrome105" : "safari13",
+    minify: process.env.TAURI_ENV_DEBUG ? false : "esbuild",
+    sourcemap: Boolean(process.env.TAURI_ENV_DEBUG),
+  },
+});

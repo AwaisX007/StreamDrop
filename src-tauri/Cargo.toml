@@ -1,0 +1,34 @@
+[package]
+name = "streamdrop"
+version = "3.0.0"
+description = "A small, approachable desktop interface for yt-dlp"
+authors = ["Syed Awais Shah (MarineoFPS) <shahwais35@gmail.com>"]
+edition = "2021"
+license = "MIT"
+homepage = "https://marineofps.dev"
+
+[lib]
+name = "streamdrop_lib"
+crate-type = ["rlib"]
+test = false
+
+[[test]]
+name = "core"
+path = "tests/core.rs"
+
+[build-dependencies]
+embed-resource = "3"
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+futures-util = "0.3"
+hex = "0.4"
+reqwest = { version = "0.12", default-features = false, features = ["json", "native-tls", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tokio = { version = "1", features = ["fs", "io-util", "macros", "process", "rt-multi-thread", "sync"] }
+tokio-util = "0.7"
+url = "2"

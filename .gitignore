@@ -1,0 +1,30 @@
+# Workspace-local toolchains and caches
+/tools/
+/.tmp/
+/node_modules/
+/src-tauri/target/
+/src-tauri/gen/
+/local-notes/
+
+# Runtime-managed data
+/bin/*.exe
+/bin/*.tmp
+/bin/*.backup
+/data/
+/downloads/
+
+# Frontend output
+/dist/
+/release/
+
+# Local and sensitive files
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.code-workspace
+*.log
+*.cookies.txt
+.DS_Store
+Thumbs.db

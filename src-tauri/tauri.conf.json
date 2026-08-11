@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Streamdrop",
+  "version": "3.0.0",
+  "identifier": "app.streamdrop.desktop",
+  "build": {
+    "beforeDevCommand": "npm.cmd run frontend:dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm.cmd run frontend:build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": "default-src 'self' customprotocol: asset:; connect-src 'self' ipc: http://ipc.localhost http://127.0.0.1:1420 ws://127.0.0.1:1420; img-src 'self' asset: http: https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "Syed Awais Shah (MarineoFPS)",
+    "category": "Utility",
+    "shortDescription": "A simple desktop interface for yt-dlp",
+    "longDescription": "Download videos, audio, subtitles, and playlists through an approachable desktop interface powered by yt-dlp.",
+    "copyright": "Copyright © 2026 Syed Awais Shah",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "compression": "lzma",
+        "languages": ["English"]
+      }
+    }
+  }
+}
